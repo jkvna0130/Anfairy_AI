@@ -1,20 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>🌸 Anfairy AI 🌸</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@700&display=swap" rel="stylesheet" />
     <style>
-      <style>
         :root {
             --hot-pink: #ff1493;
             --deep-pink: #ff69b4;
@@ -27,6 +20,7 @@
             font-family: 'Quicksand', sans-serif;
             overflow: hidden;
             height: 100vh;
+            margin: 0;
         }
 
         .font-kawaii { font-family: 'Bubblegum Sans', cursive; }
@@ -42,7 +36,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* ANIMASI EMOJI MELAYANG LEBIH SMOOTH */
         @keyframes floatRotate {
             0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.8; }
             50% { transform: translateY(-40px) rotate(180deg) scale(1.2); opacity: 0.5; }
@@ -50,7 +43,7 @@
         }
         .emoji-kawaii {
             position: absolute;
-            font-size: 5rem;
+            font-size: clamp(2rem, 10vw, 5rem);
             animation: floatRotate 10s linear infinite;
             z-index: -1;
             filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.4));
@@ -59,15 +52,14 @@
         .glass-pink-heavy {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
-            border: 6px solid var(--deep-pink);
-            border-radius: 60px;
+            border: clamp(3px, 1vw, 6px) solid var(--deep-pink);
+            border-radius: clamp(20px, 5vw, 60px);
             box-shadow: 0 10px 40px rgba(255, 20, 147, 0.3);
         }
 
-        .bubble-me { border-radius: 40px 40px 5px 40px; background: var(--hot-pink); box-shadow: 4px 4px 0px #c71585; }
-        .bubble-ai { border-radius: 40px 40px 40px 5px; background: white; border: 4px solid var(--soft-pink); color: var(--hot-pink); box-shadow: 4px 4px 0px var(--soft-pink); }
+        .bubble-me { border-radius: 25px 25px 5px 25px; background: var(--hot-pink); box-shadow: 3px 3px 0px #c71585; }
+        .bubble-ai { border-radius: 25px 25px 25px 5px; background: white; border: 3px solid var(--soft-pink); color: var(--hot-pink); box-shadow: 3px 3px 0px var(--soft-pink); }
 
-        /* ANIMASI GIF KELINCI AGAR BERDENYUT LUCU */
         @keyframes heartbeat {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -80,119 +72,71 @@
             0%, 100% { transform: rotate(-3deg); }
             50% { transform: rotate(3deg); }
         }
-    </style
+        
+        /* Fix scrollbar agar tidak merusak desain */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: var(--hot-pink); border-radius: 10px; }
     </style>
   </head>
   <body class="bg-moving relative">
     <div class="emoji-kawaii" style="top: 10%; left: 5%">🦄</div>
-    <div class="emoji-kawaii" style="top: 5%; right: 10%; animation-delay: 1s">
-      🍭
-    </div>
-    <div
-      class="emoji-kawaii"
-      style="bottom: 15%; left: 10%; animation-delay: 2s"
-    >
-      🎀
-    </div>
-    <div
-      class="emoji-kawaii"
-      style="bottom: 5%; right: 5%; animation-delay: 3s"
-    >
-      🌸
-    </div>
-    <div
-      class="emoji-kawaii"
-      style="top: 40%; right: 2%; animation-delay: 1.5s"
-    >
-      💖
-    </div>
+    <div class="emoji-kawaii" style="top: 5%; right: 10%; animation-delay: 1s">🍭</div>
+    <div class="emoji-kawaii" style="bottom: 15%; left: 10%; animation-delay: 2s">🎀</div>
+    <div class="emoji-kawaii" style="bottom: 5%; right: 5%; animation-delay: 3s">🌸</div>
+    <div class="emoji-kawaii" style="top: 40%; right: 2%; animation-delay: 1.5s">💖</div>
 
-    <div
-      class="flex flex-col md:flex-row h-screen p-4 md:p-8 gap-6 relative z-10"
-    >
-      <aside
-        class="w-full md:w-1/4 glass-pink-heavy p-6 flex flex-col h-[160px] md:h-full"
-      >
-        <h2
-          class="text-4xl font-kawaii text-[#ff1493] text-center mb-4 tracking-tighter"
-        >
+    <div class="flex flex-col md:flex-row h-screen p-2 md:p-8 gap-3 md:gap-6 relative z-10 overflow-hidden">
+      
+      <aside class="w-full md:w-1/4 glass-pink-heavy p-4 md:p-6 flex flex-col h-[140px] md:h-full shrink-0">
+        <h2 class="text-xl md:text-4xl font-kawaii text-[#ff1493] text-center mb-2 md:mb-4 tracking-tighter">
           History 🍓
         </h2>
-        <div
-          id="historyList"
-          class="flex-1 overflow-y-auto space-y-3 pr-2 text-sm font-bold text-[#ff69b4]"
-        >
+        <div id="historyList" class="flex-1 overflow-y-auto space-y-2 md:space-y-3 pr-2 text-xs md:text-sm font-bold text-[#ff69b4]">
           Belum ada History... 🧸
         </div>
-        <button
-          onclick="clearHistory()"
-          class="mt-4 text-xs font-black text-[#ff1493] uppercase italic"
-        >
-          ✨ Hapus History kamu? ✨
+        <button onclick="clearHistory()" class="mt-2 text-[10px] md:text-xs font-black text-[#ff1493] uppercase italic">
+          ✨ Hapus History? ✨
         </button>
       </aside>
 
-      <main
-        class="w-full md:w-3/4 glass-pink-heavy flex flex-col overflow-hidden relative border-[10px] border-white"
-      >
-        <header class="p-6 text-center border-b-8 border-[#ff69b4]/20">
-          <h1
-            class="text-5xl md:text-7xl font-kawaii text-[#ff1493] drop-shadow-[4px_4px_0px_#fff]"
-          >
+      <main class="w-full md:w-3/4 glass-pink-heavy flex flex-col overflow-hidden relative border-[4px] md:border-[10px] border-white grow">
+        <header class="p-3 md:p-6 text-center border-b-4 md:border-b-8 border-[#ff69b4]/20 shrink-0">
+          <h1 class="text-3xl md:text-7xl font-kawaii text-[#ff1493] drop-shadow-[2px_2px_0px_#fff] md:drop-shadow-[4px_4px_0px_#fff]">
             🎀 Anfairy AI 🎀
           </h1>
-          <p class="text-lg font-bold text-[#ff69b4] animate-bounce mt-2">
+          <p class="text-sm md:text-lg font-bold text-[#ff69b4] animate-bounce mt-1">
             Hai Cantikk🌸
           </p>
         </header>
 
-        <div id="chatBox" class="flex-1 overflow-y-auto p-6 md:p-12 space-y-10">
-          <div
-            class="flex flex-col items-center justify-center h-full text-center"
-          >
-            <img
-              src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZqZW9pZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKVUn7iM8FMEU24/giphy.gif"
-              width="160"
-              class="drop-shadow-xl gif-lucu rounded-full border-4 border-white"
-            />
-            <p class="text-3xl font-kawaii text-[#ff1493] mt-6">
+        <div id="chatBox" class="flex-1 overflow-y-auto p-4 md:p-12 space-y-6 md:space-y-10">
+          <div class="flex flex-col items-center justify-center h-full text-center">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZqZW9pZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKVUn7iM8FMEU24/giphy.gif"
+              width="100" class="md:w-[160px] drop-shadow-xl gif-lucu rounded-full border-2 md:border-4 border-white" />
+            <p class="text-xl md:text-3xl font-kawaii text-[#ff1493] mt-4">
               Mau tanya apa hari inii😊
             </p>
-            <p class="text-[#ff69b4] font-bold">Aku siap bantu kamu! 🌸✨</p>
+            <p class="text-[#ff69b4] font-bold text-xs md:text-base">Aku siap bantu kamu! 🌸✨</p>
           </div>
         </div>
 
-        <section class="p-6 md:p-10 bg-[#fff0f6]/80">
-          <div class="max-w-4xl mx-auto space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <select
-                id="persona"
-                class="w-full p-4 rounded-full border-4 border-[#ff1493] font-bold text-[#ff1493] bg-white outline-none"
-              >
+        <section class="p-4 md:p-10 bg-[#fff0f6]/80 shrink-0">
+          <div class="max-w-4xl mx-auto space-y-3 md:space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
+              <select id="persona" class="w-full p-2 md:p-4 rounded-full border-2 md:border-4 border-[#ff1493] font-bold text-[#ff1493] bg-white outline-none text-xs md:text-base">
                 <option value="Bestie Super Kawaii">💖 Mode Bestie</option>
                 <option value="Mode Dosen">👩‍🏫Mode Dosen</option>
                 <option value="Master IT">👩‍💻 Master IT</option>
               </select>
-              <input
-                type="file"
-                id="fileInput"
-                class="w-full text-xs font-bold text-[#ff69b4] file:bg-[#ff1493] file:text-white file:border-0 file:rounded-full file:px-6 file:py-3 cursor-pointer"
-              />
+              <input type="file" id="fileInput" class="w-full text-[10px] md:text-xs font-bold text-[#ff69b4] file:bg-[#ff1493] file:text-white file:border-0 file:rounded-full file:px-4 md:file:px-6 file:py-2 md:file:py-3 cursor-pointer" />
             </div>
 
-            <div class="relative">
-              <textarea
-                id="pesan"
-                rows="2"
-                placeholder="Ketikan sesuatu yang gemas di sini... 🍭✨"
-                class="w-full p-8 pr-48 rounded-[50px] border-8 border-white focus:border-[#ff1493] outline-none shadow-[inset_0_4px_10px_rgba(0,0,0,0.1)] text-[#ff1493] font-black text-xl"
-              ></textarea>
+            <div class="relative flex flex-col md:block">
+              <textarea id="pesan" rows="2" placeholder="Ketikan sesuatu... 🍭✨"
+                class="w-full p-4 md:p-8 md:pr-48 rounded-[25px] md:rounded-[50px] border-4 md:border-8 border-white focus:border-[#ff1493] outline-none shadow-inner text-[#ff1493] font-black text-sm md:text-xl"></textarea>
 
-              <button
-                onclick="kirim()"
-                id="btnKirim"
-                class="absolute right-4 top-4 bottom-4 px-12 bg-[#ff1493] text-white font-black rounded-[40px] text-xl btn-wiggle shadow-[4px_4px_0px_#c71585]"
-              >
+              <button onclick="kirim()" id="btnKirim"
+                class="mt-2 md:mt-0 md:absolute md:right-4 md:top-4 md:bottom-4 px-6 md:px-12 bg-[#ff1493] text-white font-black rounded-[20px] md:rounded-[40px] text-sm md:text-xl btn-wiggle shadow-md md:shadow-[4px_4px_0px_#c71585] py-3 md:py-0">
                 KIRIM ✨
               </button>
             </div>
@@ -202,42 +146,30 @@
     </div>
 
     <script>
-      let chatHistory =
-        JSON.parse(localStorage.getItem("anfairy_history")) || [];
+      let chatHistory = JSON.parse(localStorage.getItem("anfairy_history")) || [];
 
       function updateHistoryUI() {
         const list = document.getElementById("historyList");
-        list.innerHTML =
-          chatHistory.length === 0
-            ? "belum ada history...🧸"
-            : chatHistory
-                .map(
-                  (h, i) => `
-                    <div class="flex justify-between items-center p-3 bg-white rounded-[20px] border-4 border-[#ffc0cb] animate-bounce">
-                        <span class="truncate">🎀 ${h.text}</span>
-                        <button onclick="deleteChat(${i})" class="text-[#ff1493]"><i class="fas fa-times-circle"></i></button>
-                    </div>
-                `,
-                )
-                .join("");
+        list.innerHTML = chatHistory.length === 0 ? "belum ada history...🧸" : chatHistory.map((h, i) => `
+            <div class="flex justify-between items-center p-2 md:p-3 bg-white rounded-[15px] md:rounded-[20px] border-2 md:border-4 border-[#ffc0cb]">
+                <span class="truncate text-[10px] md:text-sm">🎀 ${h.text}</span>
+                <button onclick="deleteChat(${i})" class="text-[#ff1493]"><i class="fas fa-times-circle"></i></button>
+            </div>
+        `).join("");
       }
 
       async function kirim() {
         const msgInput = document.getElementById("pesan");
         const btn = document.getElementById("btnKirim");
         const chatBox = document.getElementById("chatBox");
-        if (!msgInput.value && !document.getElementById("fileInput").files[0])
-          return;
+        if (!msgInput.value && !document.getElementById("fileInput").files[0]) return;
 
         btn.disabled = true;
         btn.innerHTML = "🍭..";
 
         if (msgInput.value) {
           chatHistory.unshift({ text: msgInput.value.substring(0, 15) + ".." });
-          localStorage.setItem(
-            "anfairy_history",
-            JSON.stringify(chatHistory.slice(0, 5)),
-          );
+          localStorage.setItem("anfairy_history", JSON.stringify(chatHistory.slice(0, 5)));
           updateHistoryUI();
         }
 
@@ -245,12 +177,9 @@
         formData.append("pesan", msgInput.value);
         formData.append("persona", document.getElementById("persona").value);
         if (document.getElementById("fileInput").files[0])
-          formData.append(
-            "file",
-            document.getElementById("fileInput").files[0],
-          );
+          formData.append("file", document.getElementById("fileInput").files[0]);
 
-        chatBox.innerHTML += `<div class='flex justify-end'><div class='bubble-me p-6 text-white font-bold text-lg shadow-xl animate-pulse'>${msgInput.value}</div></div>`;
+        chatBox.innerHTML += `<div class='flex justify-end'><div class='bubble-me p-4 md:p-6 text-white font-bold text-sm md:text-lg shadow-xl animate-pulse'>${msgInput.value}</div></div>`;
         msgInput.value = "";
         chatBox.scrollTop = chatBox.scrollHeight;
 
@@ -260,18 +189,17 @@
           const id = "m" + Date.now();
 
           chatBox.innerHTML += `
-                    <div class='flex justify-start gap-4'>
-                        <div class='bubble-ai p-8 font-black text-lg relative group shadow-lg'>
-                            <b class='text-[#ff1493] italic'>🌸 ${document.getElementById("persona").value}:</b><br><span id="${id}">${data.jawaban}</span>
-                            <div class="mt-6 flex gap-3 opacity-0 group-hover:opacity-100 transition-all">
-                                <button onclick="salin('${id}')" class="bg-[#ff1493] text-white px-6 py-2 rounded-full text-xs">COPY 🎀</button>
-                                <button onclick="simpan('${id}')" class="bg-[#ff69b4] text-white px-6 py-2 rounded-full text-xs">SAVE 📁</button>
-                            </div>
-                        </div>
-                    </div>`;
+            <div class='flex justify-start gap-2 md:gap-4'>
+                <div class='bubble-ai p-5 md:p-8 font-black text-sm md:text-lg relative group shadow-lg'>
+                    <b class='text-[#ff1493] italic text-xs md:text-sm'>🌸 ${document.getElementById("persona").value}:</b><br><span id="${id}">${data.jawaban}</span>
+                    <div class="mt-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all">
+                        <button onclick="salin('${id}')" class="bg-[#ff1493] text-white px-3 md:px-6 py-1 md:py-2 rounded-full text-[10px]">COPY 🎀</button>
+                        <button onclick="simpan('${id}')" class="bg-[#ff69b4] text-white px-3 md:px-6 py-1 md:py-2 rounded-full text-[10px]">SAVE 📁</button>
+                    </div>
+                </div>
+            </div>`;
         } catch {
-          chatBox.innerHTML +=
-            "<p class='text-center text-[#ff1493] font-black'>Aduh AI-nya lelah! 🥀</p>";
+          chatBox.innerHTML += "<p class='text-center text-[#ff1493] font-black text-xs'>Aduh AI-nya lelah! 🥀</p>";
         } finally {
           btn.disabled = false;
           btn.innerHTML = "KIRIM ✨";
@@ -285,9 +213,7 @@
       }
 
       function simpan(id) {
-        const blob = new Blob([document.getElementById(id).innerText], {
-          type: "text/plain",
-        });
+        const blob = new Blob([document.getElementById(id).innerText], { type: "text/plain" });
         const a = document.createElement("a");
         a.href = URL.createObjectURL(blob);
         a.download = "Anfairy-Memory.txt";
