@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌸 ANFAIRY AI KAWAII 🌸</title>
+    <title>🌸 Anfairy AI 🌸</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@700&display=swap" rel="stylesheet">
@@ -45,7 +45,7 @@
         }
         .emoji-kawaii {
             position: absolute;
-            font-size: 4rem;
+            font-size: 5rem;
             animation: floatRotate 6s linear infinite;
             z-index: -1;
             filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.5));
@@ -87,26 +87,26 @@
     <div class="flex flex-col md:flex-row h-screen p-4 md:p-8 gap-6 relative z-10">
         
         <aside class="w-full md:w-1/4 glass-pink-heavy p-6 flex flex-col h-[160px] md:h-full">
-            <h2 class="text-4xl font-kawaii text-[#ff1493] text-center mb-4 tracking-tighter">Memori 🍓</h2>
+            <h2 class="text-4xl font-kawaii text-[#ff1493] text-center mb-4 tracking-tighter">Histoy 🍓</h2>
             <div id="historyList" class="flex-1 overflow-y-auto space-y-3 pr-2 text-sm font-bold text-[#ff69b4]">
-                Belum ada kenangan... 🧸
+                Belum ada History... 🧸
             </div>
-            <button onclick="clearHistory()" class="mt-4 text-xs font-black text-[#ff1493] uppercase italic">✨ Hapus Masa Lalu ✨</button>
+            <button onclick="clearHistory()" class="mt-4 text-xs font-black text-[#ff1493] uppercase italic">✨ Hapus Histoy ✨</button>
         </aside>
 
         <main class="w-full md:w-3/4 glass-pink-heavy flex flex-col overflow-hidden relative border-[10px] border-white">
             
             <header class="p-6 text-center border-b-8 border-[#ff69b4]/20">
                 <h1 class="text-5xl md:text-7xl font-kawaii text-[#ff1493] drop-shadow-[4px_4px_0px_#fff]">
-                    ANFAIRY AI 🎀
+                    🎀 Anfairy AI 🎀
                 </h1>
-                <p class="text-lg font-bold text-[#ff69b4] animate-bounce mt-2">✨ Super Girly & Kawaii ✨</p>
+                <p class="text-lg font-bold text-[#ff69b4] animate-bounce mt-2">Hai kamuuuu🌸</p>
             </header>
 
             <div id="chatBox" class="flex-1 overflow-y-auto p-6 md:p-12 space-y-10">
                 <div class="flex flex-col items-center justify-center h-full text-center">
                     <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzhidG9udW52bjh2YnB6M3J4NTR4NTR4NTR4NTR4NTR4NTR4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKVUn7iM8FMEU24/giphy.gif" width="180">
-                    <p class="text-3xl font-kawaii text-[#ff1493] mt-6">Halo Princess Anna! 👸</p>
+                    <p class="text-3xl font-kawaii text-[#ff1493] mt-6">Hai kamuuuu🌸</p>
                     <p class="text-[#ff69b4] font-bold">Ayo chat aku sekarang! 🌸✨</p>
                 </div>
             </div>
@@ -116,9 +116,9 @@
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <select id="persona" class="w-full p-4 rounded-full border-4 border-[#ff1493] font-bold text-[#ff1493] bg-white outline-none">
-                            <option value="Bestie Super Kawaii">💖 Mode Bestie Lucu</option>
-                            <option value="Princess Royal">👑 Mode Tuan Putri</option>
-                            <option value="Master IT Pinky">👩‍💻 Master IT Cantik</option>
+                            <option value="Bestie Super Kawaii">💖 Mode Bestie</option>
+                            <option value="Mode Dosen">👩‍🏫Mode Dosen</option>
+                            <option value="Master IT">👩‍💻 Master IT</option>
                         </select>
                         <input type="file" id="fileInput" class="w-full text-xs font-bold text-[#ff69b4] file:bg-[#ff1493] file:text-white file:border-0 file:rounded-full file:px-6 file:py-3 cursor-pointer">
                     </div>
@@ -142,7 +142,7 @@
 
         function updateHistoryUI() {
             const list = document.getElementById("historyList");
-            list.innerHTML = chatHistory.length === 0 ? "Belum ada kenangan... 🧸" : 
+            list.innerHTML = chatHistory.length === 0 ? "🧸......" : 
                 chatHistory.map((h, i) => `
                     <div class="flex justify-between items-center p-3 bg-white rounded-[20px] border-4 border-[#ffc0cb] animate-bounce">
                         <span class="truncate">🎀 ${h.text}</span>
