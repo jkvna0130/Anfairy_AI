@@ -13,8 +13,8 @@
       href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      <styl>
+    <styl>
+      <>
         :root {
             --hot-pink: #ff1493;
             --deep-pink: #ff69b4;
@@ -80,73 +80,6 @@
             0%, 100% { transform: rotate(-3deg); }
             50% { transform: rotate(3deg); }
         }
-    </style>
-    :root {
-            --hot-pink: #ff1493;
-            --deep-pink: #ff69b4;
-            --soft-pink: #ffc0cb;
-            --white-pink: #fff5f7;
-        }
-
-        body { 
-            background-color: var(--white-pink);
-            font-family: 'Quicksand', sans-serif;
-            overflow: hidden;
-            height: 100vh;
-        }
-
-        /* Font Super Lucu */
-        .font-kawaii { font-family: 'Bubblegum Sans', cursive; }
-
-        /* Animasi Gradient Jalan */
-        .bg-moving {
-            background: linear-gradient(-45deg, #ffc0cb, #ff69b4, #ff1493, #ffb6c1);
-            background-size: 400% 400%;
-            animation: gradient 10s ease infinite;
-        }
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* EMOJI GERAK & MUTER */
-        @keyframes floatRotate {
-            0% { transform: translateY(0) rotate(0deg) scale(1); }
-            50% { transform: translateY(-30px) rotate(180deg) scale(1.2); }
-            100% { transform: translateY(0) rotate(360deg) scale(1); }
-        }
-        .emoji-kawaii {
-            position: absolute;
-            font-size: 4rem;
-            animation: floatRotate 6s linear infinite;
-            z-index: -1;
-            filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.5));
-        }
-
-        /* Kaca Pink Tebal */
-        .glass-pink-heavy {
-            background: rgba(255, 255, 255, 0.9);
-            border: 6px solid var(--deep-pink);
-            border-radius: 60px;
-            box-shadow: 0 0 40px rgba(255, 20, 147, 0.4);
-        }
-
-        /* Bubble Chat Super Lucu */
-        .bubble-me { border-radius: 40px 40px 5px 40px; background: var(--hot-pink); box-shadow: 4px 4px 0px #c71585; }
-        .bubble-ai { border-radius: 40px 40px 40px 5px; background: white; border: 4px solid var(--soft-pink); color: var(--hot-pink); box-shadow: 4px 4px 0px var(--soft-pink); }
-
-        /* Animasi Tombol Bergetar Lucu */
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(-3deg); }
-            50% { transform: rotate(3deg); }
-        }
-        .btn-wiggle:hover { animation: wiggle 0.3s infinite; }
-
-        /* Custom Scrollbar Permen */
-        ::-webkit-scrollbar { width: 12px; }
-        ::-webkit-scrollbar-track { background: var(--white-pink); }
-        ::-webkit-scrollbar-thumb { background: var(--hot-pink); border-radius: 10px; border: 3px solid var(--white-pink); }
     </style>
   </head>
   <body class="bg-moving relative">
