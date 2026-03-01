@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🌸 Anfairy AI 🌸</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
@@ -18,8 +18,10 @@
         body { 
             background-color: var(--white-pink);
             font-family: 'Quicksand', sans-serif;
-            overflow: hidden;
-            height: 100vh;
+            /* SEKARANG BISA DI-SCROLL */
+            overflow-y: auto; 
+            min-height: 100vh;
+            margin: 0;
         }
 
         .font-kawaii { font-family: 'Bubblegum Sans', cursive; }
@@ -35,95 +37,86 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* EMOJI GERAK TETAP ADA & LUCU */
+        /* ANIMASI EMOJI - SEKARANG DI DEPAN (Z-INDEX TINGGI) */
         @keyframes floatRotate {
-            0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.8; }
-            50% { transform: translateY(-40px) rotate(180deg) scale(1.2); opacity: 0.5; }
-            100% { transform: translateY(0) rotate(360deg) scale(1); opacity: 0.8; }
+            0% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-40px) rotate(180deg) scale(1.2); }
+            100% { transform: translateY(0) rotate(360deg) scale(1); }
         }
         .emoji-kawaii {
-            position: absolute;
-            font-size: clamp(3rem, 10vw, 5rem);
-            animation: floatRotate 10s linear infinite;
-            z-index: -1;
-            filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.4));
+            position: fixed; /* Biar tetep kelihatan pas di-scroll */
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            animation: floatRotate 8s linear infinite;
+            z-index: 50; /* MUNYUL DI DEPAN */
+            pointer-events: none; /* Biar nggak ngehalangin klik tombol */
+            filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.5));
         }
 
         .glass-pink-heavy {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border: clamp(4px, 1vw, 6px) solid var(--deep-pink);
-            border-radius: clamp(30px, 5vw, 60px);
-            box-shadow: 0 10px 40px rgba(255, 20, 147, 0.3);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 5px solid var(--deep-pink);
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
         }
 
-        .bubble-me { border-radius: 25px 25px 5px 25px; background: var(--hot-pink); box-shadow: 4px 4px 0px #c71585; }
-        .bubble-ai { border-radius: 25px 25px 25px 5px; background: white; border: 3px solid var(--soft-pink); color: var(--hot-pink); box-shadow: 4px 4px 0px var(--soft-pink); }
+        .bubble-me { border-radius: 20px 20px 5px 20px; background: var(--hot-pink); color: white; }
+        .bubble-ai { border-radius: 20px 20px 20px 5px; background: white; border: 3px solid var(--soft-pink); color: var(--hot-pink); }
 
+        .gif-lucu { animation: heartbeat 2s infinite ease-in-out; }
         @keyframes heartbeat {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
-        .gif-lucu { animation: heartbeat 2s infinite ease-in-out; }
-
-        .btn-wiggle:hover { animation: wiggle 0.3s infinite; }
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(-3deg); }
-            50% { transform: rotate(3deg); }
-        }
-        
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-thumb { background: var(--hot-pink); border-radius: 10px; }
     </style>
   </head>
   <body class="bg-moving relative">
-    <div class="emoji-kawaii" style="top: 10%; left: 5%">🦄</div>
-    <div class="emoji-kawaii" style="top: 5%; right: 10%; animation-delay: 1s">🍭</div>
-    <div class="emoji-kawaii" style="bottom: 15%; left: 10%; animation-delay: 2s">🎀</div>
-    <div class="emoji-kawaii" style="bottom: 5%; right: 5%; animation-delay: 3s">🌸</div>
-    <div class="emoji-kawaii" style="top: 40%; right: 2%; animation-delay: 1.5s">💖</div>
+    <div class="emoji-kawaii" style="top: 15%; left: 3%">🦄</div>
+    <div class="emoji-kawaii" style="top: 10%; right: 4%; animation-delay: 1s">🍭</div>
+    <div class="emoji-kawaii" style="bottom: 20%; left: 6%; animation-delay: 2s">🎀</div>
+    <div class="emoji-kawaii" style="bottom: 10%; right: 3%; animation-delay: 3s">🌸</div>
 
-    <div class="flex flex-col md:flex-row h-screen p-2 md:p-8 gap-3 md:gap-6 relative z-10 overflow-hidden">
-      <aside class="w-full md:w-1/4 glass-pink-heavy p-4 md:p-6 flex flex-col h-[150px] md:h-full shrink-0">
-        <h2 class="text-2xl md:text-4xl font-kawaii text-[#ff1493] text-center mb-2 md:mb-4 tracking-tighter">History 🍓</h2>
-        <div id="historyList" class="flex-1 overflow-y-auto space-y-2 text-sm font-bold text-[#ff69b4]">
+    <div class="flex flex-col md:flex-row min-h-screen p-3 md:p-8 gap-4 md:gap-6 relative z-10">
+      
+      <aside class="w-full md:w-1/4 glass-pink-heavy p-4 md:p-6 flex flex-col h-auto md:h-[90vh]">
+        <h2 class="text-2xl md:text-4xl font-kawaii text-[#ff1493] text-center mb-4 tracking-tighter">History 🍓</h2>
+        <div id="historyList" class="flex-1 overflow-y-auto space-y-3 pr-2 text-sm font-bold text-[#ff69b4] min-h-[100px]">
           Belum ada History... 🧸
         </div>
-        <button onclick="clearHistory()" class="mt-2 text-[10px] md:text-xs font-black text-[#ff1493] uppercase italic">✨ Hapus History mu? ✨</button>
+        <button onclick="clearHistory()" class="mt-4 text-xs font-black text-[#ff1493] uppercase italic text-center w-full">✨ Hapus Memory ✨</button>
       </aside>
 
-      <main class="w-full md:w-3/4 glass-pink-heavy flex flex-col overflow-hidden relative border-[6px] md:border-[10px] border-white grow">
-        <header class="p-3 md:p-6 text-center border-b-4 md:border-b-8 border-[#ff69b4]/20 shrink-0">
-          <h1 class="text-3xl md:text-7xl font-kawaii text-[#ff1493] drop-shadow-[2px_2px_0px_#fff] md:drop-shadow-[4px_4px_0px_#fff]">🎀 Anfairy 🎀</h1>
-          <p class="text-sm md:text-lg font-bold text-[#ff69b4] animate-bounce mt-1">Hai cantikk🌸</p>
+      <main class="w-full md:w-3/4 glass-pink-heavy flex flex-col relative border-[6px] md:border-[10px] border-white h-auto md:h-[90vh]">
+        <header class="p-4 md:p-6 text-center border-b-4 md:border-b-8 border-[#ff69b4]/20">
+          <h1 class="text-4xl md:text-7xl font-kawaii text-[#ff1493] drop-shadow-[2px_2px_0px_#fff]">🎀 Anfairy AI 🎀</h1>
+          <p class="text-sm md:text-lg font-bold text-[#ff69b4] mt-1">Hai Cantikk🌸</p>
         </header>
 
-        <div id="chatBox" class="flex-1 overflow-y-auto p-4 md:p-12 space-y-6 md:space-y-10">
-          <div class="flex flex-col items-center justify-center h-full text-center">
+        <div id="chatBox" class="flex-1 overflow-y-auto p-4 md:p-10 space-y-8 min-h-[300px]">
+          <div class="flex flex-col items-center justify-center h-full text-center py-10">
             <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZqZW9pZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKVUn7iM8FMEU24/giphy.gif"
-              width="100" class="md:w-[160px] drop-shadow-xl gif-lucu rounded-full border-2 md:border-4 border-white" />
-            <p class="text-xl md:text-3xl font-kawaii text-[#ff1493] mt-4">Mau tanya apa hari inii?</p>
+              width="120" class="md:w-[160px] gif-lucu rounded-full border-4 border-white shadow-xl" />
+            <p class="text-2xl md:text-3xl font-kawaii text-[#ff1493] mt-6">Mau tanya apa hari inii😊</p>
           </div>
         </div>
 
-        <section class="p-4 md:p-10 bg-[#fff0f6]/80 shrink-0">
-          <div class="max-w-4xl mx-auto space-y-3 md:space-y-6">
-            <div class="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-4">
-              <select id="persona" class="w-full p-2 md:p-4 rounded-full border-2 md:border-4 border-[#ff1493] font-bold text-[#ff1493] bg-white outline-none text-xs md:text-base">
+        <section class="p-4 md:p-10 bg-[#fff0f6]/80 border-t-4 border-white">
+          <div class="max-w-4xl mx-auto space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <select id="persona" class="w-full p-3 rounded-full border-4 border-[#ff1493] font-bold text-[#ff1493] bg-white outline-none">
                 <option value="Bestie">💖 Mode Bestie</option>
                 <option value="Dosen">👩‍🏫 Mode Dosen</option>
                 <option value="IT">👩‍💻 Master IT</option>
               </select>
-              <input type="file" id="fileInput" class="w-full text-[10px] md:text-xs font-bold text-[#ff69b4] file:bg-[#ff1493] file:text-white file:border-0 file:rounded-full file:px-3 md:file:px-6 file:py-1.5 md:file:py-3 cursor-pointer" />
+              <input type="file" id="fileInput" class="w-full text-xs font-bold text-[#ff69b4] file:bg-[#ff1493] file:text-white file:border-0 file:rounded-full file:px-4 file:py-2" />
             </div>
 
-            <div class="relative flex flex-col md:block">
+            <div class="flex flex-col gap-3">
               <textarea id="pesan" rows="2" placeholder="Ketikan sesuatu... 🍭✨"
-                class="w-full p-4 md:p-8 md:pr-48 rounded-[25px] md:rounded-[50px] border-4 md:border-8 border-white focus:border-[#ff1493] outline-none shadow-inner text-[#ff1493] font-black text-sm md:text-xl"></textarea>
-
+                class="w-full p-5 rounded-[30px] border-4 border-white focus:border-[#ff1493] outline-none text-[#ff1493] font-bold text-lg"></textarea>
               <button onclick="kirim()" id="btnKirim"
-                class="mt-2 md:mt-0 md:absolute md:right-4 md:top-4 md:bottom-4 px-6 md:px-12 bg-[#ff1493] text-white font-black rounded-[20px] md:rounded-[40px] text-sm md:text-xl btn-wiggle shadow-md md:shadow-[4px_4px_0px_#c71585] py-3 md:py-0">
+                class="w-full py-4 bg-[#ff1493] text-white font-black rounded-[25px] text-xl shadow-[0_4px_0_#c71585] active:translate-y-1 active:shadow-none transition-all">
                 KIRIM ✨
               </button>
             </div>
@@ -136,9 +129,9 @@
       let chatHistory = JSON.parse(localStorage.getItem("anfairy_history")) || [];
       function updateHistoryUI() {
         const list = document.getElementById("historyList");
-        list.innerHTML = chatHistory.length === 0 ? "belum ada history...🧸" : chatHistory.map((h, i) => `
-            <div class="flex justify-between items-center p-2 bg-white rounded-xl border-2 border-[#ffc0cb]">
-                <span class="truncate text-[10px] md:text-sm">🎀 ${h.text}</span>
+        list.innerHTML = chatHistory.length === 0 ? "Belum ada history...🧸" : chatHistory.map((h, i) => `
+            <div class="flex justify-between items-center p-3 bg-white rounded-[20px] border-2 border-[#ffc0cb]">
+                <span class="truncate text-sm">🎀 ${h.text}</span>
                 <button onclick="deleteChat(${i})" class="text-[#ff1493]"><i class="fas fa-times-circle"></i></button>
             </div>`).join("");
       }
@@ -147,7 +140,7 @@
         const btn = document.getElementById("btnKirim");
         const chatBox = document.getElementById("chatBox");
         if (!msgInput.value && !document.getElementById("fileInput").files[0]) return;
-        btn.disabled = true; btn.innerHTML = "🍭..";
+        btn.disabled = true; btn.innerHTML = "LOADING.. 🍭";
         if (msgInput.value) {
           chatHistory.unshift({ text: msgInput.value.substring(0, 15) + ".." });
           localStorage.setItem("anfairy_history", JSON.stringify(chatHistory.slice(0, 5)));
@@ -157,20 +150,29 @@
         formData.append("pesan", msgInput.value);
         formData.append("persona", document.getElementById("persona").value);
         if (document.getElementById("fileInput").files[0]) formData.append("file", document.getElementById("fileInput").files[0]);
-        chatBox.innerHTML += `<div class='flex justify-end'><div class='bubble-me p-4 md:p-6 text-white font-bold text-sm md:text-lg shadow-xl animate-pulse'>${msgInput.value}</div></div>`;
+        chatBox.innerHTML += `<div class='flex justify-end'><div class='bubble-me p-4 shadow-md font-bold'>${msgInput.value}</div></div>`;
         msgInput.value = ""; chatBox.scrollTop = chatBox.scrollHeight;
         try {
           const res = await fetch("/tanya", { method: "POST", body: formData });
           const data = await res.json();
           const id = "m" + Date.now();
-          chatBox.innerHTML += `<div class='flex justify-start gap-2 md:gap-4'><div class='bubble-ai p-5 md:p-8 font-black text-sm md:text-lg relative group shadow-lg'><b class='text-[#ff1493] italic text-xs md:text-sm'>🌸 AI:</b><br><span id="${id}">${data.jawaban}</span><div class="mt-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all"><button onclick="salin('${id}')" class="bg-[#ff1493] text-white px-3 py-1 rounded-full text-[10px]">COPY 🎀</button><button onclick="simpan('${id}')" class="bg-[#ff69b4] text-white px-3 py-1 rounded-full text-[10px]">SAVE 📁</button></div></div></div>`;
-        } catch { chatBox.innerHTML += "<p class='text-center text-[#ff1493] font-black text-xs'>Error! 🥀</p>"; }
+          chatBox.innerHTML += `
+            <div class='flex justify-start gap-2'>
+                <div class='bubble-ai p-5 font-bold shadow-sm relative group'>
+                    <b class='text-[#ff1493]'>🌸 AI:</b><br><span id="${id}">${data.jawaban}</span>
+                    <div class="mt-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all">
+                        <button onclick="salin('${id}')" class="bg-[#ff1493] text-white px-4 py-1 rounded-full text-[10px]">COPY</button>
+                        <button onclick="simpan('${id}')" class="bg-[#ff69b4] text-white px-4 py-1 rounded-full text-[10px]">SAVE</button>
+                    </div>
+                </div>
+            </div>`;
+        } catch { chatBox.innerHTML += "<p class='text-center text-[#ff1493] font-bold'>Error! 🥀</p>"; }
         finally { btn.disabled = false; btn.innerHTML = "KIRIM ✨"; chatBox.scrollTop = chatBox.scrollHeight; }
       }
       function salin(id) { navigator.clipboard.writeText(document.getElementById(id).innerText); alert("Copied! ✨💖"); }
       function simpan(id) {
         const blob = new Blob([document.getElementById(id).innerText], { type: "text/plain" });
-        const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "Anfairy-Talk.txt"; a.click();
+        const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "AnfairyAI.txt"; a.click();
       }
       function deleteChat(i) { chatHistory.splice(i, 1); localStorage.setItem("anfairy_history", JSON.stringify(chatHistory)); updateHistoryUI(); }
       function clearHistory() { if (confirm("Hapus?")) { chatHistory = []; localStorage.removeItem("anfairy_history"); updateHistoryUI(); } }
