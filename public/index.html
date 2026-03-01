@@ -87,11 +87,11 @@
     <div class="flex flex-col md:flex-row h-screen p-4 md:p-8 gap-6 relative z-10">
         
         <aside class="w-full md:w-1/4 glass-pink-heavy p-6 flex flex-col h-[160px] md:h-full">
-            <h2 class="text-4xl font-kawaii text-[#ff1493] text-center mb-4 tracking-tighter">Histoy 🍓</h2>
+            <h2 class="text-4xl font-kawaii text-[#ff1493] text-center mb-4 tracking-tighter">History 🍓</h2>
             <div id="historyList" class="flex-1 overflow-y-auto space-y-3 pr-2 text-sm font-bold text-[#ff69b4]">
                 Belum ada History... 🧸
             </div>
-            <button onclick="clearHistory()" class="mt-4 text-xs font-black text-[#ff1493] uppercase italic">✨ Hapus Histoy ✨</button>
+            <button onclick="clearHistory()" class="mt-4 text-xs font-black text-[#ff1493] uppercase italic">✨ Hapus History kamu? ✨</button>
         </aside>
 
         <main class="w-full md:w-3/4 glass-pink-heavy flex flex-col overflow-hidden relative border-[10px] border-white">
@@ -100,14 +100,14 @@
                 <h1 class="text-5xl md:text-7xl font-kawaii text-[#ff1493] drop-shadow-[4px_4px_0px_#fff]">
                     🎀 Anfairy AI 🎀
                 </h1>
-                <p class="text-lg font-bold text-[#ff69b4] animate-bounce mt-2">Hai kamuuuu🌸</p>
+                <p class="text-lg font-bold text-[#ff69b4] animate-bounce mt-2">Hai Cantikk🌸</p>
             </header>
 
             <div id="chatBox" class="flex-1 overflow-y-auto p-6 md:p-12 space-y-10">
                 <div class="flex flex-col items-center justify-center h-full text-center">
-                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzhidG9udW52bjh2YnB6M3J4NTR4NTR4NTR4NTR4NTR4NTR4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKVUn7iM8FMEU24/giphy.gif" width="180">
-                    <p class="text-3xl font-kawaii text-[#ff1493] mt-6">Hai kamuuuu🌸</p>
-                    <p class="text-[#ff69b4] font-bold">Ayo chat aku sekarang! 🌸✨</p>
+                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZqZW9pZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKVUn7iM8FMEU24/giphy.gif" width="180">
+                    <p class="text-3xl font-kawaii text-[#ff1493] mt-6">Mau tanya apa hari inii😊</p>
+                    <p class="text-[#ff69b4] font-bold">Aku siap bantu kamu! 🌸✨</p>
                 </div>
             </div>
 
@@ -142,7 +142,7 @@
 
         function updateHistoryUI() {
             const list = document.getElementById("historyList");
-            list.innerHTML = chatHistory.length === 0 ? "🧸......" : 
+            list.innerHTML = chatHistory.length === 0 ? "belum ada history...🧸" : 
                 chatHistory.map((h, i) => `
                     <div class="flex justify-between items-center p-3 bg-white rounded-[20px] border-4 border-[#ffc0cb] animate-bounce">
                         <span class="truncate">🎀 ${h.text}</span>
