@@ -1,208 +1,120 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anfairy AI🌸✨</title>
+    <title>Anfairy AI 🎀</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Quicksand:wght@500;700&display=swap');
-        
-        /* Background super soft pink dengan pola glitter */
-        body { 
-            font-family: 'Quicksand', sans-serif; 
-            background: #fff1f2;
-            background-image: url('https://www.transparenttextures.com/patterns/pink-dust.png');
-            overflow-x: hidden;
-        }
-
-        /* Glassmorphism Pink */
-        .pink-glass { 
-            background: rgba(255, 255, 255, 0.85); 
-            backdrop-filter: blur(15px); 
-            border: 6px solid #fce7f3; 
-            box-shadow: 0 20px 50px rgba(244, 114, 182, 0.2);
-        }
-
-        /* Animasi Bunga Melayang */
-        .flower-float {
-            animation: float 4s ease-in-out infinite;
-            display: inline-block;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(10deg); }
-        }
-
-        /* Tombol Glitter Gradient */
-        .btn-glitter {
-            background: linear-gradient(45deg, #f472b6, #fb7185, #fda4af);
-            background-size: 200% 200%;
-            animation: gradient-shift 3s ease infinite;
-            transition: 0.4s;
-        }
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .btn-glitter:hover { transform: scale(1.05) rotate(-1deg); box-shadow: 0 0 30px rgba(244, 114, 182, 0.6); }
-
-        /* Custom Scrollbar Pink */
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-thumb { background: #fbcfe8; border-radius: 20px; border: 3px solid #fff1f2; }
+        body { background-color: #fff5f7; }
+        .pink-gradient { background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%); }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        /* Custom Scrollbar biar makin cantik */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #ee9ca7; border-radius: 10px; }
     </style>
 </head>
-<body class="min-h-screen p-4 md:p-10 flex flex-col items-center">
+<body class="min-h-screen font-sans text-gray-800">
 
-    <div class="fixed top-10 left-10 text-6xl flower-float opacity-40">🌸</div>
-    <div class="fixed bottom-10 right-10 text-6xl flower-float opacity-40" style="animation-delay: 2s;">🌷</div>
-    <div class="fixed top-1/2 right-5 text-4xl flower-float opacity-30">✨</div>
-
-    <div class="max-w-6xl w-full pink-glass rounded-[4rem] p-6 md:p-12 relative overflow-hidden">
+    <div class="flex flex-col md:flex-row h-screen p-3 md:p-6 gap-4">
         
-        <h1 class="text-4xl md:text-6xl font-bold text-pink-500 text-center mb-10 drop-shadow-md" style="font-family: 'Cherry Bomb One';">
-            🎀 Anfairy AI 🎀
-        </h1>
+        <aside class="w-full md:w-1/4 glass rounded-3xl p-5 flex flex-col shadow-lg overflow-hidden h-[250px] md:h-full">
+            <h2 class="text-xl font-bold text-pink-600 mb-4 flex items-center gap-2">
+                <i class="fas fa-history"></i> History Cantik
+            </h2>
+            <div id="historyList" class="flex-1 overflow-y-auto space-y-2 pr-2 text-sm italic text-gray-500">
+                Belum ada obrolan manis... 🌷
+            </div>
+            <button onclick="clearHistory()" class="mt-4 text-xs text-pink-400 hover:text-pink-600 transition-all">
+                Hapus Semua Jejak ✨
+            </button>
+        </aside>
 
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
+        <main class="w-full md:w-3/4 glass rounded-3xl shadow-xl flex flex-col overflow-hidden relative border-4 border-white">
             
-            <div class="lg:col-span-1">
-                <div class="bg-pink-50/80 p-6 rounded-[3rem] border-4 border-white shadow-inner h-full min-h-[400px]">
-                    <h3 class="font-bold text-pink-600 mb-6 flex items-center gap-2 text-xl italic">
-                        <span class="animate-pulse">🌸</span> History Cantik
-                    </h3>
-                    <div id="listRiwayat" class="space-y-4 max-h-[500px] overflow-y-auto pr-2">
-                        <p class="text-pink-300 italic text-center text-sm">Belum ada obrolan manis... ✨</p>
-                    </div>
+            <header class="p-4 md:p-6 text-center border-b border-white">
+                <h1 class="text-3xl md:text-4xl font-black text-pink-500 tracking-tighter flex justify-center items-center gap-2">
+                    🎀 Anfairy AI 🎀
+                </h1>
+            </header>
+
+            <div id="chatBox" class="flex-1 overflow-y-auto p-4 md:p-8 space-y-6">
+                <div class="flex flex-col items-center justify-center h-full text-center space-y-3 opacity-60">
+                    <i class="fas fa-wand-magic-sparkles text-5xl text-pink-300"></i>
+                    <p class="text-pink-400 italic">Tanya apa saja, aku siap membantu dengan gaya!</p>
                 </div>
             </div>
 
-            <div class="lg:col-span-3 space-y-6">
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div class="space-y-2">
-                        <label class="ml-4 text-pink-600 font-bold text-sm uppercase">👩‍🏫 Pilih Role:</label>
-                        <select id="selectPersona" class="w-full p-5 rounded-3xl border-4 border-white bg-pink-50 text-pink-600 outline-none focus:ring-4 focus:ring-pink-200 transition-all shadow-sm font-bold">
-                            <option value="Bestie yang asik dan gaul banget">🌸 Mode Bestie</option>
-                            <option value="Dosen Informatika yang pinter dan teknis">👩‍🏫 Mode Dosen Pakar</option>
-                            <option value="Programmer Senior yang jago ngoding">💻 Mode Master Coding</option>
-                        </select>
-                    </div>
+            <section class="p-4 md:p-8 bg-white/50 border-t border-white">
+                <div class="max-w-4xl mx-auto space-y-4">
                     
-                    <div class="space-y-2">
-                        <label class="ml-4 text-pink-600 font-bold text-sm uppercase">📁 Lampiran:</label>
-                        <label class="flex items-center justify-center w-full p-4 rounded-3xl border-4 border-dashed border-pink-200 bg-white hover:bg-pink-50 cursor-pointer transition-all shadow-sm">
-                            <span id="fileName" class="text-pink-400 font-bold text-sm truncate text-center">📁 Klik untuk foto/file</span>
-                            <input type="file" id="inputFile" class="hidden" onchange="updateFileName()">
-                        </label>
-                    </div>
-                </div>
-
-                <textarea id="inputPesan" 
-                    class="w-full p-8 rounded-[3rem] border-4 border-white focus:ring-8 focus:ring-pink-100 transition-all outline-none bg-pink-50/50 text-gray-700 placeholder-pink-200 text-lg shadow-inner" 
-                    rows="4" 
-                    placeholder="Tulis sesuatu yang cantik di sini... 🌸"></textarea>
-
-                <button onclick="kirimKeGemini()" id="btnKirim" 
-                    class="w-full btn-glitter text-white font-bold py-6 rounded-[3rem] text-2xl shadow-xl active:scale-95 flex items-center justify-center gap-3">
-                    Kirim Anfairy AI ✨
-                </button>
-
-                <div id="boxHasil" class="mt-10 hidden">
-                    <div class="p-10 bg-white rounded-[4rem] border-4 border-pink-100 shadow-2xl relative group">
-                        <div class="absolute -top-6 -left-6 text-4xl">✨</div>
-                        <div id="teksJawaban" class="leading-relaxed whitespace-pre-wrap italic text-gray-700 text-lg"></div>
-                        
-                        <div class="flex gap-4 mt-8 border-t-2 border-pink-50 pt-6">
-                            <button onclick="salinTeks()" class="bg-pink-50 text-pink-500 px-6 py-3 rounded-2xl text-sm font-bold hover:bg-pink-500 hover:text-white transition-all shadow-sm">📋 SALIN</button>
-                            <button onclick="downloadTxt()" class="bg-pink-50 text-pink-500 px-6 py-3 rounded-2xl text-sm font-bold hover:bg-pink-500 hover:text-white transition-all shadow-sm">📄 SIMPAN .TXT</button>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div>
+                            <label class="text-[10px] font-bold text-pink-400 uppercase tracking-widest ml-2">🎀 Pilih Role:</label>
+                            <select id="persona" class="w-full mt-1 p-2 md:p-3 rounded-2xl border-2 border-pink-100 focus:border-pink-300 outline-none text-sm glass">
+                                <option value="Mode Bestie">🌸 Mode Bestie</option>
+                                <option value="Mode Dosen Galak">👩‍🏫 Mode Dosen Galak</option>
+                                <option value="Pakar IT">💻 Master Coding</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-[10px] font-bold text-pink-400 uppercase tracking-widest ml-2">📂 Lampiran:</label>
+                            <input type="file" id="fileInput" class="w-full mt-1 text-xs text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-pink-50 file:text-pink-700 hover:file:bg-pink-100 cursor-pointer">
                         </div>
                     </div>
+
+                    <div class="relative flex items-center">
+                        <textarea id="pesan" rows="2" placeholder="Tulis sesuatu yang cantik di sini... 🌸" 
+                            class="w-full p-4 pr-32 rounded-3xl border-2 border-pink-100 focus:border-pink-400 outline-none resize-none shadow-inner text-sm md:text-base"></textarea>
+                        
+                        <button onclick="kirim()" id="btnKirim" 
+                            class="absolute right-2 px-6 py-3 pink-gradient text-white font-bold rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all text-sm">
+                            Kirim <i class="fas fa-paper-plane ml-1"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
 
     <script>
-        let riwayatArr = [];
+        async function kirim() {
+            const pesan = document.getElementById("pesan").value;
+            const persona = document.getElementById("persona").value;
+            const fileInput = document.getElementById("fileInput");
+            const btn = document.getElementById("btnKirim");
+            const chatBox = document.getElementById("chatBox");
 
-        function updateFileName() {
-            const file = document.getElementById('inputFile').files[0];
-            document.getElementById('fileName').innerText = file ? `✅ ${file.name}` : "📁 Klik untuk foto/file";
-        }
+            if (!pesan && !fileInput.files[0]) return;
 
-        async function kirimKeGemini() {
-            const input = document.getElementById('inputPesan');
-            const fileInput = document.getElementById('inputFile');
-            const btn = document.getElementById('btnKirim');
-            const box = document.getElementById('boxHasil');
-            const hasil = document.getElementById('teksJawaban');
-
-            if (!input.value.trim()) return alert("Isi pesannya dulu ya, Tuan Putri! 🌸");
-
-            riwayatArr.unshift(input.value);
-            renderRiwayat();
-
+            // Efek Loading
             btn.disabled = true;
-            btn.innerHTML = "🧙‍♀️ Sedang Meracik Mantra...";
-            
+            btn.innerHTML = "<i class='fas fa-spinner fa-spin'></i>";
+
             const formData = new FormData();
-            formData.append("pesan", input.value);
-            formData.append("persona", document.getElementById('selectPersona').value);
+            formData.append("pesan", pesan);
+            formData.append("persona", persona);
             if (fileInput.files[0]) formData.append("file", fileInput.files[0]);
 
+            // Tambah Bubble Chat User ke UI
+            chatBox.innerHTML += `<div class='flex justify-end animate-fade-in'><div class='bg-pink-500 text-white p-4 rounded-2xl rounded-tr-none max-w-[85%] shadow-md text-sm'>${pesan}</div></div>`;
+            document.getElementById("pesan").value = "";
+            chatBox.scrollTop = chatBox.scrollHeight;
+
             try {
-                const response = await fetch('/tanya', { method: 'POST', body: formData });
-                const data = await response.json();
-                box.classList.remove('hidden');
-                hasil.innerText = data.jawaban;
-                box.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } catch (err) { alert("Duh, sihirnya lagi gagal... 🥀"); }
-            finally { btn.disabled = false; btn.innerHTML = "Kirim Magic ✨"; }
-        }
-
-        function renderRiwayat() {
-            const list = document.getElementById('listRiwayat');
-            list.innerHTML = riwayatArr.map((item, index) => `
-                <div class="p-4 bg-white rounded-[2rem] border-2 border-pink-100 text-pink-500 shadow-sm relative group transition-all hover:border-pink-300">
-                    <p class="mb-3 break-words pr-5 text-sm font-medium">🌸 ${item}</p>
-                    <div class="flex gap-3 border-t border-pink-50 pt-2">
-                        <button onclick="editRiwayat(${index})" class="text-[10px] font-bold text-pink-400 hover:text-pink-600 transition">✏️ UBAH</button>
-                        <button onclick="hapusRiwayat(${index})" class="text-[10px] font-bold text-rose-300 hover:text-rose-500 transition">🗑️ BUANG</button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function hapusRiwayat(index) {
-            if(confirm("Hapus ingatan ini, Cantik? 🎀")) {
-                riwayatArr.splice(index, 1);
-                renderRiwayat();
+                const res = await fetch("/tanya", { method: "POST", body: formData });
+                const data = await res.json();
+                
+                // Tambah Bubble AI
+                chatBox.innerHTML += `<div class='flex justify-start animate-fade-in'><div class='glass p-4 rounded-2xl rounded-tl-none max-w-[85%] border-2 border-white shadow-sm text-sm'><b>${persona}:</b><br>${data.jawaban}</div></div>`;
+            } catch (err) {
+                chatBox.innerHTML += `<div class='text-center text-red-400 text-xs italic'>Aduh, AI lagi pingsan... 🥀</div>`;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = "Kirim <i class='fas fa-paper-plane ml-1'></i>";
+                chatBox.scrollTop = chatBox.scrollHeight;
             }
-        }
-
-        function editRiwayat(index) {
-            const baru = prompt("Edit pertanyaan magic kamu:", riwayatArr[index]);
-            if (baru !== null && baru.trim() !== "") {
-                riwayatArr[index] = baru;
-                renderRiwayat();
-            }
-        }
-
-        function salinTeks() {
-            navigator.clipboard.writeText(document.getElementById('teksJawaban').innerText);
-            alert("Udah disalin ke kantong ajaib! 🎀");
-        }
-
-        function downloadTxt() {
-            const teks = document.getElementById('teksJawaban').innerText;
-            const blob = new Blob([teks], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `Jawaban_Magic_Ana.txt`;
-            a.click();
         }
     </script>
 </body>
