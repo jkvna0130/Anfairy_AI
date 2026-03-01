@@ -3,126 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anfairy AI 🎀 Pink Ultimate</title>
+    <title>🌸 ANFAIRY AI KAWAII 🌸</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --hot-pink: #ff69b4;
-            --soft-pink: #ffdae9;
-            --baby-pink: #fff0f6;
+            --hot-pink: #ff1493;
+            --deep-pink: #ff69b4;
+            --soft-pink: #ffc0cb;
+            --white-pink: #fff5f7;
         }
-        
+
         body { 
-            background-color: var(--baby-pink); 
+            background-color: var(--white-pink);
             font-family: 'Quicksand', sans-serif;
             overflow: hidden;
             height: 100vh;
         }
-        
-        /* Font Super Lucu & Bulat */
-        h1, h2, .font-lucu { font-family: 'Grandiflora One', cursive; }
 
-        /* Background Full Pink Soft */
-        .bg-pink-ultimate { 
-            background: linear-gradient(180deg, #fff0f6 0%, #ffdeeb 100%); 
+        /* Font Super Lucu */
+        .font-kawaii { font-family: 'Bubblegum Sans', cursive; }
+
+        /* Animasi Gradient Jalan */
+        .bg-moving {
+            background: linear-gradient(-45deg, #ffc0cb, #ff69b4, #ff1493, #ffb6c1);
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* Glassmorphism Pink Glow */
-        .glass-pink { 
-            background: rgba(255, 255, 255, 0.8); 
-            backdrop-filter: blur(15px); 
-            border: 4px solid #ffc2d1; 
-            box-shadow: 0 0 25px rgba(255, 105, 180, 0.3);
+        /* EMOJI GERAK & MUTER */
+        @keyframes floatRotate {
+            0% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-30px) rotate(180deg) scale(1.2); }
+            100% { transform: translateY(0) rotate(360deg) scale(1); }
         }
-        
-        /* Button Glow */
-        .btn-pink {
-            background: linear-gradient(135deg, #ff85a2 0%, #ff69b4 100%);
-            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
-            transition: all 0.3s ease;
-        }
-        .btn-pink:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6); }
-
-        /* Floating Animation */
-        @keyframes floating {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-25px) rotate(10deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-        .emoji-float {
+        .emoji-kawaii {
             position: absolute;
-            font-size: 3rem;
-            animation: floating 4s ease-in-out infinite;
+            font-size: 4rem;
+            animation: floatRotate 6s linear infinite;
             z-index: -1;
-            filter: drop-shadow(0 0 10px rgba(255,192,203,0.8));
+            filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.5));
         }
 
-        /* Bubble Chat Super Rounded */
-        .chat-user { border-radius: 30px 30px 5px 30px; background-color: #ff69b4; color: white; }
-        .chat-ai { border-radius: 30px 30px 30px 5px; background-color: white; border: 3px solid #ffdae9; color: #ff4d94; }
+        /* Kaca Pink Tebal */
+        .glass-pink-heavy {
+            background: rgba(255, 255, 255, 0.9);
+            border: 6px solid var(--deep-pink);
+            border-radius: 60px;
+            box-shadow: 0 0 40px rgba(255, 20, 147, 0.4);
+        }
 
+        /* Bubble Chat Super Lucu */
+        .bubble-me { border-radius: 40px 40px 5px 40px; background: var(--hot-pink); box-shadow: 4px 4px 0px #c71585; }
+        .bubble-ai { border-radius: 40px 40px 40px 5px; background: white; border: 4px solid var(--soft-pink); color: var(--hot-pink); box-shadow: 4px 4px 0px var(--soft-pink); }
+
+        /* Animasi Tombol Bergetar Lucu */
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+        .btn-wiggle:hover { animation: wiggle 0.3s infinite; }
+
+        /* Custom Scrollbar Permen */
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: var(--white-pink); }
+        ::-webkit-scrollbar-thumb { background: var(--hot-pink); border-radius: 10px; border: 3px solid var(--white-pink); }
     </style>
 </head>
-<body class="bg-pink-ultimate relative">
+<body class="bg-moving relative">
 
-    <div class="emoji-float" style="top: 10%; left: 5%;">🎀</div>
-    <div class="emoji-float" style="top: 5%; right: 5%; animation-delay: 1s;">🌸</div>
-    <div class="emoji-float" style="bottom: 15%; left: 10%; animation-delay: 2s;">💕</div>
-    <div class="emoji-float" style="bottom: 10%; right: 8%; animation-delay: 0.5s;">🦄</div>
-    <div class="emoji-float" style="top: 45%; right: 2%; animation-delay: 1.5s;">✨</div>
+    <div class="emoji-kawaii" style="top: 10%; left: 5%;">🦄</div>
+    <div class="emoji-kawaii" style="top: 5%; right: 10%; animation-delay: 1s;">🍭</div>
+    <div class="emoji-kawaii" style="bottom: 15%; left: 10%; animation-delay: 2s;">🎀</div>
+    <div class="emoji-kawaii" style="bottom: 5%; right: 5%; animation-delay: 3s;">🌸</div>
+    <div class="emoji-kawaii" style="top: 40%; right: 2%; animation-delay: 1.5s;">💖</div>
 
-    <div class="flex flex-col md:flex-row h-screen p-4 md:p-6 gap-6 relative z-10">
+    <div class="flex flex-col md:flex-row h-screen p-4 md:p-8 gap-6 relative z-10">
         
-        <aside class="w-full md:w-1/4 glass-pink rounded-[45px] p-6 flex flex-col h-[180px] md:h-full">
-            <h2 class="text-3xl font-bold text-[#ff4d94] mb-4 text-center">Memory 💖</h2>
-            <div id="historyList" class="flex-1 overflow-y-auto space-y-3 pr-2 text-sm font-bold text-[#ff85a2]">
-                Isi memori dulu yuk... 🍓
+        <aside class="w-full md:w-1/4 glass-pink-heavy p-6 flex flex-col h-[160px] md:h-full">
+            <h2 class="text-4xl font-kawaii text-[#ff1493] text-center mb-4 tracking-tighter">Memori 🍓</h2>
+            <div id="historyList" class="flex-1 overflow-y-auto space-y-3 pr-2 text-sm font-bold text-[#ff69b4]">
+                Belum ada kenangan... 🧸
             </div>
-            <button onclick="clearHistory()" class="mt-4 text-[10px] font-black text-[#ff85a2] uppercase tracking-[0.2em]">
-                ✨ Hapus Semua ✨
-            </button>
+            <button onclick="clearHistory()" class="mt-4 text-xs font-black text-[#ff1493] uppercase italic">✨ Hapus Masa Lalu ✨</button>
         </aside>
 
-        <main class="w-full md:w-3/4 glass-pink rounded-[50px] flex flex-col overflow-hidden border-[6px] border-white">
+        <main class="w-full md:w-3/4 glass-pink-heavy flex flex-col overflow-hidden relative border-[10px] border-white">
             
-            <header class="p-6 text-center border-b-4 border-[#ffdae9]">
-                <h1 class="text-4xl md:text-6xl font-bold text-[#ff4d94] tracking-tighter drop-shadow-md">
-                    Anfairy AI ✨
+            <header class="p-6 text-center border-b-8 border-[#ff69b4]/20">
+                <h1 class="text-5xl md:text-7xl font-kawaii text-[#ff1493] drop-shadow-[4px_4px_0px_#fff]">
+                    ANFAIRY AI 🎀
                 </h1>
-                <div class="flex justify-center gap-2 mt-2">
-                    <span class="h-2 w-2 rounded-full bg-[#ff69b4] animate-ping"></span>
-                    <p class="text-[12px] font-bold text-[#ff85a2] uppercase tracking-widest">Princess Mode: ON 👸</p>
-                </div>
+                <p class="text-lg font-bold text-[#ff69b4] animate-bounce mt-2">✨ Super Girly & Kawaii ✨</p>
             </header>
 
-            <div id="chatBox" class="flex-1 overflow-y-auto p-6 md:p-10 space-y-8">
-                <div class="flex flex-col items-center justify-center h-full text-center fade-in">
-                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp5em53eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHgmZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/l41lY59j0rI6A/giphy.gif" width="150">
-                    <p class="mt-6 text-2xl font-bold text-[#ff4d94]">Halo Princess! 🌸</p>
-                    <p class="text-[#ff85a2] font-medium italic">Tulis pertanyaan manismu di bawah yaaa🍓</p>
+            <div id="chatBox" class="flex-1 overflow-y-auto p-6 md:p-12 space-y-10">
+                <div class="flex flex-col items-center justify-center h-full text-center">
+                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzhidG9udW52bjh2YnB6M3J4NTR4NTR4NTR4NTR4NTR4NTR4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKVUn7iM8FMEU24/giphy.gif" width="180">
+                    <p class="text-3xl font-kawaii text-[#ff1493] mt-6">Halo Princess Anna! 👸</p>
+                    <p class="text-[#ff69b4] font-bold">Ayo chat aku sekarang! 🌸✨</p>
                 </div>
             </div>
 
-            <section class="p-6 md:p-10 bg-[#fff5f8]">
-                <div class="max-w-4xl mx-auto space-y-5">
+            <section class="p-6 md:p-10 bg-[#fff0f6]/80">
+                <div class="max-w-4xl mx-auto space-y-6">
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <select id="persona" class="w-full p-4 rounded-3xl border-4 border-[#ffdae9] outline-none font-bold text-[#ff4d94] bg-white text-sm">
-                            <option value="Princess Bestie">💗 Mode Bestie </option>
-                            <option value="Ibu Guru Cantik">👩‍🏫 Mode Dosen</option>
-                            <option value="Pakar IT Pink">💻 Master IT </option>
+                        <select id="persona" class="w-full p-4 rounded-full border-4 border-[#ff1493] font-bold text-[#ff1493] bg-white outline-none">
+                            <option value="Bestie Super Kawaii">💖 Mode Bestie Lucu</option>
+                            <option value="Princess Royal">👑 Mode Tuan Putri</option>
+                            <option value="Master IT Pinky">👩‍💻 Master IT Cantik</option>
                         </select>
-                        <input type="file" id="fileInput" class="w-full text-xs text-[#ff85a2] file:bg-[#ffdae9] file:text-[#ff4d94] file:border-0 file:rounded-full file:px-6 file:py-3 file:font-black cursor-pointer shadow-sm">
+                        <input type="file" id="fileInput" class="w-full text-xs font-bold text-[#ff69b4] file:bg-[#ff1493] file:text-white file:border-0 file:rounded-full file:px-6 file:py-3 cursor-pointer">
                     </div>
 
                     <div class="relative">
-                        <textarea id="pesan" rows="2" placeholder="Tanya apa hari ini cantik? 🍭" 
-                            class="w-full p-7 pr-44 rounded-[40px] border-4 border-[#ffdae9] focus:border-[#ff69b4] outline-none shadow-inner text-[#ff4d94] font-bold placeholder-[#ffb3d1]"></textarea>
+                        <textarea id="pesan" rows="2" placeholder="Ketikan sesuatu yang gemas di sini... 🍭✨" 
+                            class="w-full p-8 pr-48 rounded-[50px] border-8 border-white focus:border-[#ff1493] outline-none shadow-[inset_0_4px_10px_rgba(0,0,0,0.1)] text-[#ff1493] font-black text-xl"></textarea>
                         
                         <button onclick="kirim()" id="btnKirim" 
-                            class="absolute right-3 top-3 bottom-3 px-10 btn-pink text-white font-black rounded-[35px] text-sm tracking-tighter flex items-center gap-2">
+                            class="absolute right-4 top-4 bottom-4 px-12 bg-[#ff1493] text-white font-black rounded-[40px] text-xl btn-wiggle shadow-[4px_4px_0px_#c71585]">
                             KIRIM ✨
                         </button>
                     </div>
@@ -136,11 +142,11 @@
 
         function updateHistoryUI() {
             const list = document.getElementById("historyList");
-            list.innerHTML = chatHistory.length === 0 ? "Isi memori dulu yuk... 🍓" : 
+            list.innerHTML = chatHistory.length === 0 ? "Belum ada kenangan... 🧸" : 
                 chatHistory.map((h, i) => `
-                    <div class="flex justify-between items-center p-3 bg-white rounded-2xl border-2 border-[#ffdae9] group">
-                        <span class="truncate">✨ ${h.text}</span>
-                        <button onclick="deleteChat(${i})" class="text-[#ff69b4]"><i class="fas fa-times-circle"></i></button>
+                    <div class="flex justify-between items-center p-3 bg-white rounded-[20px] border-4 border-[#ffc0cb] animate-bounce">
+                        <span class="truncate">🎀 ${h.text}</span>
+                        <button onclick="deleteChat(${i})" class="text-[#ff1493]"><i class="fas fa-times-circle"></i></button>
                     </div>
                 `).join("");
         }
@@ -152,10 +158,10 @@
             if (!msgInput.value && !document.getElementById("fileInput").files[0]) return;
 
             btn.disabled = true;
-            btn.innerHTML = "WAIT..";
+            btn.innerHTML = "🍭..";
 
             if(msgInput.value) {
-                chatHistory.unshift({ text: msgInput.value.substring(0, 20) + ".." });
+                chatHistory.unshift({ text: msgInput.value.substring(0, 15) + ".." });
                 localStorage.setItem("anfairy_history", JSON.stringify(chatHistory.slice(0, 5)));
                 updateHistoryUI();
             }
@@ -165,8 +171,7 @@
             formData.append("persona", document.getElementById("persona").value);
             if(document.getElementById("fileInput").files[0]) formData.append("file", document.getElementById("fileInput").files[0]);
 
-            chatBox.innerHTML += `<div class='flex justify-end'><div class='chat-user p-5 shadow-lg text-sm font-bold'>${msgInput.value}</div></div>`;
-            const userPesan = msgInput.value;
+            chatBox.innerHTML += `<div class='flex justify-end'><div class='bubble-me p-6 text-white font-bold text-lg shadow-xl animate-pulse'>${msgInput.value}</div></div>`;
             msgInput.value = "";
             chatBox.scrollTop = chatBox.scrollHeight;
 
@@ -176,17 +181,17 @@
                 const id = "m" + Date.now();
                 
                 chatBox.innerHTML += `
-                    <div class='flex justify-start gap-2'>
-                        <div class='chat-ai p-6 shadow-md text-sm font-bold relative group'>
-                            <b class='text-[#ff4d94]'>💖 ${document.getElementById("persona").value}:</b><br><span id="${id}">${data.jawaban}</span>
-                            <div class="mt-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all">
-                                <button onclick="salin('${id}')" class="text-[10px] bg-[#ffdae9] text-[#ff4d94] px-4 py-2 rounded-full font-black">SALIN</button>
-                                <button onclick="simpan('${id}')" class="text-[10px] bg-[#ffdae9] text-[#ff4d94] px-4 py-2 rounded-full font-black">SIMPAN</button>
+                    <div class='flex justify-start gap-4'>
+                        <div class='bubble-ai p-8 font-black text-lg relative group shadow-lg'>
+                            <b class='text-[#ff1493] italic'>🌸 ${document.getElementById("persona").value}:</b><br><span id="${id}">${data.jawaban}</span>
+                            <div class="mt-6 flex gap-3 opacity-0 group-hover:opacity-100 transition-all">
+                                <button onclick="salin('${id}')" class="bg-[#ff1493] text-white px-6 py-2 rounded-full text-xs">COPY 🎀</button>
+                                <button onclick="simpan('${id}')" class="bg-[#ff69b4] text-white px-6 py-2 rounded-full text-xs">SAVE 📁</button>
                             </div>
                         </div>
                     </div>`;
             } catch {
-                chatBox.innerHTML += "<p class='text-center text-[#ff69b4] font-black'>Aduh AI-nya lelah! 🥀</p>";
+                chatBox.innerHTML += "<p class='text-center text-[#ff1493] font-black'>Aduh AI-nya lelah! 🥀</p>";
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = "KIRIM ✨";
@@ -196,14 +201,14 @@
 
         function salin(id) {
             navigator.clipboard.writeText(document.getElementById(id).innerText);
-            alert("Berhasil disalin, Princess! ✨💖");
+            alert("Suksess Princess! ✨💖");
         }
 
         function simpan(id) {
             const blob = new Blob([document.getElementById(id).innerText], {type:"text/plain"});
             const a = document.createElement("a");
             a.href = URL.createObjectURL(blob);
-            a.download = "Pesan-Anfairy.txt";
+            a.download = "Anfairy-Memory.txt";
             a.click();
         }
 
@@ -214,7 +219,7 @@
         }
 
         function clearHistory() {
-            if(confirm("Hapus semua memori? 🥺")) {
+            if(confirm("Hapus memori? 🥺")) {
                 chatHistory = [];
                 localStorage.removeItem("anfairy_history");
                 updateHistoryUI();
