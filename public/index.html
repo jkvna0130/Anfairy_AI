@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anfairy AI🌸✨</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Quicksand:wght@500;700&display=swap');
+        
+        /* Background super soft pink dengan pola glitter */
+        body { 
+            font-family: 'Quicksand', sans-serif; 
+            background: #fff1f2;
+            background-image: url('https://www.transparenttextures.com/patterns/pink-dust.png');
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Pink */
+        .pink-glass { 
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(15px); 
+            border: 6px solid #fce7f3; 
+            box-shadow: 0 20px 50px rgba(244, 114, 182, 0.2);
+        }
+
+        /* Animasi Bunga Melayang */
+        .flower-float {
+            animation: float 4s ease-in-out infinite;
+            display: inline-block;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+
+        /* Tombol Glitter Gradient */
+        .btn-glitter {
+            background: linear-gradient(45deg, #f472b6, #fb7185, #fda4af);
+            background-size: 200% 200%;
+            animation: gradient-shift 3s ease infinite;
+            transition: 0.4s;
+        }
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .btn-glitter:hover { transform: scale(1.05) rotate(-1deg); box-shadow: 0 0 30px rgba(244, 114, 182, 0.6); }
+
+        /* Custom Scrollbar Pink */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-thumb { background: #fbcfe8; border-radius: 20px; border: 3px solid #fff1f2; }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-10 flex flex-col items-center">
+
+    <div class="fixed top-10 left-10 text-6xl flower-float opacity-40">🌸</div>
+    <div class="fixed bottom-10 right-10 text-6xl flower-float opacity-40" style="animation-delay: 2s;">🌷</div>
+    <div class="fixed top-1/2 right-5 text-4xl flower-float opacity-30">✨</div>
+
+    <div class="max-w-6xl w-full pink-glass rounded-[4rem] p-6 md:p-12 relative overflow-hidden">
+        
+        <h1 class="text-4xl md:text-6xl font-bold text-pink-500 text-center mb-10 drop-shadow-md" style="font-family: 'Cherry Bomb One';">
+            🎀 Anfairy AI 🎀
+        </h1>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
+            
+            <div class="lg:col-span-1">
+                <div class="bg-pink-50/80 p-6 rounded-[3rem] border-4 border-white shadow-inner h-full min-h-[400px]">
+                    <h3 class="font-bold text-pink-600 mb-6 flex items-center gap-2 text-xl italic">
+                        <span class="animate-pulse">🌸</span> History Cantik
+                    </h3>
+                    <div id="listRiwayat" class="space-y-4 max-h-[500px] overflow-y-auto pr-2">
+                        <p class="text-pink-300 italic text-center text-sm">Belum ada obrolan manis... ✨</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-3 space-y-6">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="space-y-2">
+                        <label class="ml-4 text-pink-600 font-bold text-sm uppercase">👩‍🏫 Pilih Role:</label>
+                        <select id="selectPersona" class="w-full p-5 rounded-3xl border-4 border-white bg-pink-50 text-pink-600 outline-none focus:ring-4 focus:ring-pink-200 transition-all shadow-sm font-bold">
+                            <option value="Bestie yang asik dan gaul banget">🌸 Mode Bestie</option>
+                            <option value="Dosen Informatika yang pinter dan teknis">👩‍🏫 Mode Dosen Pakar</option>
+                            <option value="Programmer Senior yang jago ngoding">💻 Mode Master Coding</option>
+                        </select>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <label class="ml-4 text-pink-600 font-bold text-sm uppercase">📁 Lampiran:</label>
+                        <label class="flex items-center justify-center w-full p-4 rounded-3xl border-4 border-dashed border-pink-200 bg-white hover:bg-pink-50 cursor-pointer transition-all shadow-sm">
+                            <span id="fileName" class="text-pink-400 font-bold text-sm truncate text-center">📁 Klik untuk foto/file</span>
+                            <input type="file" id="inputFile" class="hidden" onchange="updateFileName()">
+                        </label>
+                    </div>
+                </div>
+
+                <textarea id="inputPesan" 
+                    class="w-full p-8 rounded-[3rem] border-4 border-white focus:ring-8 focus:ring-pink-100 transition-all outline-none bg-pink-50/50 text-gray-700 placeholder-pink-200 text-lg shadow-inner" 
+                    rows="4" 
+                    placeholder="Tulis sesuatu yang cantik di sini... 🌸"></textarea>
+
+                <button onclick="kirimKeGemini()" id="btnKirim" 
+                    class="w-full btn-glitter text-white font-bold py-6 rounded-[3rem] text-2xl shadow-xl active:scale-95 flex items-center justify-center gap-3">
+                    Kirim Anfairy AI ✨
+                </button>
+
+                <div id="boxHasil" class="mt-10 hidden">
+                    <div class="p-10 bg-white rounded-[4rem] border-4 border-pink-100 shadow-2xl relative group">
+                        <div class="absolute -top-6 -left-6 text-4xl">✨</div>
+                        <div id="teksJawaban" class="leading-relaxed whitespace-pre-wrap italic text-gray-700 text-lg"></div>
+                        
+                        <div class="flex gap-4 mt-8 border-t-2 border-pink-50 pt-6">
+                            <button onclick="salinTeks()" class="bg-pink-50 text-pink-500 px-6 py-3 rounded-2xl text-sm font-bold hover:bg-pink-500 hover:text-white transition-all shadow-sm">📋 SALIN</button>
+                            <button onclick="downloadTxt()" class="bg-pink-50 text-pink-500 px-6 py-3 rounded-2xl text-sm font-bold hover:bg-pink-500 hover:text-white transition-all shadow-sm">📄 SIMPAN .TXT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let riwayatArr = [];
+
+        function updateFileName() {
+            const file = document.getElementById('inputFile').files[0];
+            document.getElementById('fileName').innerText = file ? `✅ ${file.name}` : "📁 Klik untuk foto/file";
+        }
+
+        async function kirimKeGemini() {
+            const input = document.getElementById('inputPesan');
+            const fileInput = document.getElementById('inputFile');
+            const btn = document.getElementById('btnKirim');
+            const box = document.getElementById('boxHasil');
+            const hasil = document.getElementById('teksJawaban');
+
+            if (!input.value.trim()) return alert("Isi pesannya dulu ya, Tuan Putri! 🌸");
+
+            riwayatArr.unshift(input.value);
+            renderRiwayat();
+
+            btn.disabled = true;
+            btn.innerHTML = "🧙‍♀️ Sedang Meracik Mantra...";
+            
+            const formData = new FormData();
+            formData.append("pesan", input.value);
+            formData.append("persona", document.getElementById('selectPersona').value);
+            if (fileInput.files[0]) formData.append("file", fileInput.files[0]);
+
+            try {
+                const response = await fetch('/tanya', { method: 'POST', body: formData });
+                const data = await response.json();
+                box.classList.remove('hidden');
+                hasil.innerText = data.jawaban;
+                box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } catch (err) { alert("Duh, sihirnya lagi gagal... 🥀"); }
+            finally { btn.disabled = false; btn.innerHTML = "Kirim Magic ✨"; }
+        }
+
+        function renderRiwayat() {
+            const list = document.getElementById('listRiwayat');
+            list.innerHTML = riwayatArr.map((item, index) => `
+                <div class="p-4 bg-white rounded-[2rem] border-2 border-pink-100 text-pink-500 shadow-sm relative group transition-all hover:border-pink-300">
+                    <p class="mb-3 break-words pr-5 text-sm font-medium">🌸 ${item}</p>
+                    <div class="flex gap-3 border-t border-pink-50 pt-2">
+                        <button onclick="editRiwayat(${index})" class="text-[10px] font-bold text-pink-400 hover:text-pink-600 transition">✏️ UBAH</button>
+                        <button onclick="hapusRiwayat(${index})" class="text-[10px] font-bold text-rose-300 hover:text-rose-500 transition">🗑️ BUANG</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function hapusRiwayat(index) {
+            if(confirm("Hapus ingatan ini, Cantik? 🎀")) {
+                riwayatArr.splice(index, 1);
+                renderRiwayat();
+            }
+        }
+
+        function editRiwayat(index) {
+            const baru = prompt("Edit pertanyaan magic kamu:", riwayatArr[index]);
+            if (baru !== null && baru.trim() !== "") {
+                riwayatArr[index] = baru;
+                renderRiwayat();
+            }
+        }
+
+        function salinTeks() {
+            navigator.clipboard.writeText(document.getElementById('teksJawaban').innerText);
+            alert("Udah disalin ke kantong ajaib! 🎀");
+        }
+
+        function downloadTxt() {
+            const teks = document.getElementById('teksJawaban').innerText;
+            const blob = new Blob([teks], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Jawaban_Magic_Ana.txt`;
+            a.click();
+        }
+    </script>
+</body>
+</html>
