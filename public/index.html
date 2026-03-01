@@ -1,12 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🌸 Anfairy AI 🌸</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <style>
         :root {
             --hot-pink: #ff1493;
@@ -22,14 +28,12 @@
             height: 100vh;
         }
 
-        /* Font Super Lucu */
         .font-kawaii { font-family: 'Bubblegum Sans', cursive; }
 
-        /* Animasi Gradient Jalan */
         .bg-moving {
-            background: linear-gradient(-45deg, #ffc0cb, #ff69b4, #ff1493, #ffb6c1);
+            background: linear-gradient(-45deg, #ffc0cb, #ff69b4, #ffb6c1, #fff5f7);
             background-size: 400% 400%;
-            animation: gradient 10s ease infinite;
+            animation: gradient 15s ease infinite;
         }
         @keyframes gradient {
             0% { background-position: 0% 50%; }
@@ -37,150 +41,223 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* EMOJI GERAK & MUTER */
+        /* ANIMASI EMOJI MELAYANG LEBIH SMOOTH */
         @keyframes floatRotate {
-            0% { transform: translateY(0) rotate(0deg) scale(1); }
-            50% { transform: translateY(-30px) rotate(180deg) scale(1.2); }
-            100% { transform: translateY(0) rotate(360deg) scale(1); }
+            0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.8; }
+            50% { transform: translateY(-40px) rotate(180deg) scale(1.2); opacity: 0.5; }
+            100% { transform: translateY(0) rotate(360deg) scale(1); opacity: 0.8; }
         }
         .emoji-kawaii {
             position: absolute;
             font-size: 5rem;
-            animation: floatRotate 6s linear infinite;
+            animation: floatRotate 10s linear infinite;
             z-index: -1;
-            filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.5));
+            filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.4));
         }
 
-        /* Kaca Pink Tebal */
         .glass-pink-heavy {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
             border: 6px solid var(--deep-pink);
             border-radius: 60px;
-            box-shadow: 0 0 40px rgba(255, 20, 147, 0.4);
+            box-shadow: 0 10px 40px rgba(255, 20, 147, 0.3);
         }
 
-        /* Bubble Chat Super Lucu */
         .bubble-me { border-radius: 40px 40px 5px 40px; background: var(--hot-pink); box-shadow: 4px 4px 0px #c71585; }
         .bubble-ai { border-radius: 40px 40px 40px 5px; background: white; border: 4px solid var(--soft-pink); color: var(--hot-pink); box-shadow: 4px 4px 0px var(--soft-pink); }
 
-        /* Animasi Tombol Bergetar Lucu */
+        /* ANIMASI GIF KELINCI AGAR BERDENYUT LUCU */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .gif-lucu { animation: heartbeat 2s infinite ease-in-out; }
+
+        .btn-wiggle:hover { animation: wiggle 0.3s infinite; }
         @keyframes wiggle {
             0%, 100% { transform: rotate(-3deg); }
             50% { transform: rotate(3deg); }
         }
-        .btn-wiggle:hover { animation: wiggle 0.3s infinite; }
-
-        /* Custom Scrollbar Permen */
-        ::-webkit-scrollbar { width: 12px; }
-        ::-webkit-scrollbar-track { background: var(--white-pink); }
-        ::-webkit-scrollbar-thumb { background: var(--hot-pink); border-radius: 10px; border: 3px solid var(--white-pink); }
     </style>
-</head>
-<body class="bg-moving relative">
+  </head>
+  <body class="bg-moving relative">
+    <div class="emoji-kawaii" style="top: 10%; left: 5%">🦄</div>
+    <div class="emoji-kawaii" style="top: 5%; right: 10%; animation-delay: 1s">
+      🍭
+    </div>
+    <div
+      class="emoji-kawaii"
+      style="bottom: 15%; left: 10%; animation-delay: 2s"
+    >
+      🎀
+    </div>
+    <div
+      class="emoji-kawaii"
+      style="bottom: 5%; right: 5%; animation-delay: 3s"
+    >
+      🌸
+    </div>
+    <div
+      class="emoji-kawaii"
+      style="top: 40%; right: 2%; animation-delay: 1.5s"
+    >
+      💖
+    </div>
 
-    <div class="emoji-kawaii" style="top: 10%; left: 5%;">🦄</div>
-    <div class="emoji-kawaii" style="top: 5%; right: 10%; animation-delay: 1s;">🍭</div>
-    <div class="emoji-kawaii" style="bottom: 15%; left: 10%; animation-delay: 2s;">🎀</div>
-    <div class="emoji-kawaii" style="bottom: 5%; right: 5%; animation-delay: 3s;">🌸</div>
-    <div class="emoji-kawaii" style="top: 40%; right: 2%; animation-delay: 1.5s;">💖</div>
+    <div
+      class="flex flex-col md:flex-row h-screen p-4 md:p-8 gap-6 relative z-10"
+    >
+      <aside
+        class="w-full md:w-1/4 glass-pink-heavy p-6 flex flex-col h-[160px] md:h-full"
+      >
+        <h2
+          class="text-4xl font-kawaii text-[#ff1493] text-center mb-4 tracking-tighter"
+        >
+          History 🍓
+        </h2>
+        <div
+          id="historyList"
+          class="flex-1 overflow-y-auto space-y-3 pr-2 text-sm font-bold text-[#ff69b4]"
+        >
+          Belum ada History... 🧸
+        </div>
+        <button
+          onclick="clearHistory()"
+          class="mt-4 text-xs font-black text-[#ff1493] uppercase italic"
+        >
+          ✨ Hapus History kamu? ✨
+        </button>
+      </aside>
 
-    <div class="flex flex-col md:flex-row h-screen p-4 md:p-8 gap-6 relative z-10">
-        
-        <aside class="w-full md:w-1/4 glass-pink-heavy p-6 flex flex-col h-[160px] md:h-full">
-            <h2 class="text-4xl font-kawaii text-[#ff1493] text-center mb-4 tracking-tighter">History 🍓</h2>
-            <div id="historyList" class="flex-1 overflow-y-auto space-y-3 pr-2 text-sm font-bold text-[#ff69b4]">
-                Belum ada History... 🧸
+      <main
+        class="w-full md:w-3/4 glass-pink-heavy flex flex-col overflow-hidden relative border-[10px] border-white"
+      >
+        <header class="p-6 text-center border-b-8 border-[#ff69b4]/20">
+          <h1
+            class="text-5xl md:text-7xl font-kawaii text-[#ff1493] drop-shadow-[4px_4px_0px_#fff]"
+          >
+            🎀 Anfairy AI 🎀
+          </h1>
+          <p class="text-lg font-bold text-[#ff69b4] animate-bounce mt-2">
+            Hai Cantikk🌸
+          </p>
+        </header>
+
+        <div id="chatBox" class="flex-1 overflow-y-auto p-6 md:p-12 space-y-10">
+          <div
+            class="flex flex-col items-center justify-center h-full text-center"
+          >
+            <img
+              src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZqZW9pZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKVUn7iM8FMEU24/giphy.gif"
+              width="160"
+              class="drop-shadow-xl gif-lucu rounded-full border-4 border-white"
+            />
+            <p class="text-3xl font-kawaii text-[#ff1493] mt-6">
+              Mau tanya apa hari inii😊
+            </p>
+            <p class="text-[#ff69b4] font-bold">Aku siap bantu kamu! 🌸✨</p>
+          </div>
+        </div>
+
+        <section class="p-6 md:p-10 bg-[#fff0f6]/80">
+          <div class="max-w-4xl mx-auto space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <select
+                id="persona"
+                class="w-full p-4 rounded-full border-4 border-[#ff1493] font-bold text-[#ff1493] bg-white outline-none"
+              >
+                <option value="Bestie Super Kawaii">💖 Mode Bestie</option>
+                <option value="Mode Dosen">👩‍🏫Mode Dosen</option>
+                <option value="Master IT">👩‍💻 Master IT</option>
+              </select>
+              <input
+                type="file"
+                id="fileInput"
+                class="w-full text-xs font-bold text-[#ff69b4] file:bg-[#ff1493] file:text-white file:border-0 file:rounded-full file:px-6 file:py-3 cursor-pointer"
+              />
             </div>
-            <button onclick="clearHistory()" class="mt-4 text-xs font-black text-[#ff1493] uppercase italic">✨ Hapus History kamu? ✨</button>
-        </aside>
 
-        <main class="w-full md:w-3/4 glass-pink-heavy flex flex-col overflow-hidden relative border-[10px] border-white">
-            
-            <header class="p-6 text-center border-b-8 border-[#ff69b4]/20">
-                <h1 class="text-5xl md:text-7xl font-kawaii text-[#ff1493] drop-shadow-[4px_4px_0px_#fff]">
-                    🎀 Anfairy AI 🎀
-                </h1>
-                <p class="text-lg font-bold text-[#ff69b4] animate-bounce mt-2">Hai Cantikk🌸</p>
-            </header>
+            <div class="relative">
+              <textarea
+                id="pesan"
+                rows="2"
+                placeholder="Ketikan sesuatu yang gemas di sini... 🍭✨"
+                class="w-full p-8 pr-48 rounded-[50px] border-8 border-white focus:border-[#ff1493] outline-none shadow-[inset_0_4px_10px_rgba(0,0,0,0.1)] text-[#ff1493] font-black text-xl"
+              ></textarea>
 
-            <div id="chatBox" class="flex-1 overflow-y-auto p-6 md:p-12 space-y-10">
-                <div class="flex flex-col items-center justify-center h-full text-center">
-                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZqZW9pZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpZ3JpJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKVUn7iM8FMEU24/giphy.gif" width="150" class="drop-shadow-lg">
-                    <p class="text-3xl font-kawaii text-[#ff1493] mt-6">Mau tanya apa hari inii😊</p>
-                    <p class="text-[#ff69b4] font-bold">Aku siap bantu kamu! 🌸✨</p>
-                </div>
+              <button
+                onclick="kirim()"
+                id="btnKirim"
+                class="absolute right-4 top-4 bottom-4 px-12 bg-[#ff1493] text-white font-black rounded-[40px] text-xl btn-wiggle shadow-[4px_4px_0px_#c71585]"
+              >
+                KIRIM ✨
+              </button>
             </div>
-
-            <section class="p-6 md:p-10 bg-[#fff0f6]/80">
-                <div class="max-w-4xl mx-auto space-y-6">
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <select id="persona" class="w-full p-4 rounded-full border-4 border-[#ff1493] font-bold text-[#ff1493] bg-white outline-none">
-                            <option value="Bestie Super Kawaii">💖 Mode Bestie</option>
-                            <option value="Mode Dosen">👩‍🏫Mode Dosen</option>
-                            <option value="Master IT">👩‍💻 Master IT</option>
-                        </select>
-                        <input type="file" id="fileInput" class="w-full text-xs font-bold text-[#ff69b4] file:bg-[#ff1493] file:text-white file:border-0 file:rounded-full file:px-6 file:py-3 cursor-pointer">
-                    </div>
-
-                    <div class="relative">
-                        <textarea id="pesan" rows="2" placeholder="Ketikan sesuatu yang gemas di sini... 🍭✨" 
-                            class="w-full p-8 pr-48 rounded-[50px] border-8 border-white focus:border-[#ff1493] outline-none shadow-[inset_0_4px_10px_rgba(0,0,0,0.1)] text-[#ff1493] font-black text-xl"></textarea>
-                        
-                        <button onclick="kirim()" id="btnKirim" 
-                            class="absolute right-4 top-4 bottom-4 px-12 bg-[#ff1493] text-white font-black rounded-[40px] text-xl btn-wiggle shadow-[4px_4px_0px_#c71585]">
-                            KIRIM ✨
-                        </button>
-                    </div>
-                </div>
-            </section>
-        </main>
+          </div>
+        </section>
+      </main>
     </div>
 
     <script>
-        let chatHistory = JSON.parse(localStorage.getItem("anfairy_history")) || [];
+      let chatHistory =
+        JSON.parse(localStorage.getItem("anfairy_history")) || [];
 
-        function updateHistoryUI() {
-            const list = document.getElementById("historyList");
-            list.innerHTML = chatHistory.length === 0 ? "belum ada history...🧸" : 
-                chatHistory.map((h, i) => `
+      function updateHistoryUI() {
+        const list = document.getElementById("historyList");
+        list.innerHTML =
+          chatHistory.length === 0
+            ? "belum ada history...🧸"
+            : chatHistory
+                .map(
+                  (h, i) => `
                     <div class="flex justify-between items-center p-3 bg-white rounded-[20px] border-4 border-[#ffc0cb] animate-bounce">
                         <span class="truncate">🎀 ${h.text}</span>
                         <button onclick="deleteChat(${i})" class="text-[#ff1493]"><i class="fas fa-times-circle"></i></button>
                     </div>
-                `).join("");
+                `,
+                )
+                .join("");
+      }
+
+      async function kirim() {
+        const msgInput = document.getElementById("pesan");
+        const btn = document.getElementById("btnKirim");
+        const chatBox = document.getElementById("chatBox");
+        if (!msgInput.value && !document.getElementById("fileInput").files[0])
+          return;
+
+        btn.disabled = true;
+        btn.innerHTML = "🍭..";
+
+        if (msgInput.value) {
+          chatHistory.unshift({ text: msgInput.value.substring(0, 15) + ".." });
+          localStorage.setItem(
+            "anfairy_history",
+            JSON.stringify(chatHistory.slice(0, 5)),
+          );
+          updateHistoryUI();
         }
 
-        async function kirim() {
-            const msgInput = document.getElementById("pesan");
-            const btn = document.getElementById("btnKirim");
-            const chatBox = document.getElementById("chatBox");
-            if (!msgInput.value && !document.getElementById("fileInput").files[0]) return;
+        const formData = new FormData();
+        formData.append("pesan", msgInput.value);
+        formData.append("persona", document.getElementById("persona").value);
+        if (document.getElementById("fileInput").files[0])
+          formData.append(
+            "file",
+            document.getElementById("fileInput").files[0],
+          );
 
-            btn.disabled = true;
-            btn.innerHTML = "🍭..";
+        chatBox.innerHTML += `<div class='flex justify-end'><div class='bubble-me p-6 text-white font-bold text-lg shadow-xl animate-pulse'>${msgInput.value}</div></div>`;
+        msgInput.value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
 
-            if(msgInput.value) {
-                chatHistory.unshift({ text: msgInput.value.substring(0, 15) + ".." });
-                localStorage.setItem("anfairy_history", JSON.stringify(chatHistory.slice(0, 5)));
-                updateHistoryUI();
-            }
+        try {
+          const res = await fetch("/tanya", { method: "POST", body: formData });
+          const data = await res.json();
+          const id = "m" + Date.now();
 
-            const formData = new FormData();
-            formData.append("pesan", msgInput.value);
-            formData.append("persona", document.getElementById("persona").value);
-            if(document.getElementById("fileInput").files[0]) formData.append("file", document.getElementById("fileInput").files[0]);
-
-            chatBox.innerHTML += `<div class='flex justify-end'><div class='bubble-me p-6 text-white font-bold text-lg shadow-xl animate-pulse'>${msgInput.value}</div></div>`;
-            msgInput.value = "";
-            chatBox.scrollTop = chatBox.scrollHeight;
-
-            try {
-                const res = await fetch("/tanya", { method: "POST", body: formData });
-                const data = await res.json();
-                const id = "m" + Date.now();
-                
-                chatBox.innerHTML += `
+          chatBox.innerHTML += `
                     <div class='flex justify-start gap-4'>
                         <div class='bubble-ai p-8 font-black text-lg relative group shadow-lg'>
                             <b class='text-[#ff1493] italic'>🌸 ${document.getElementById("persona").value}:</b><br><span id="${id}">${data.jawaban}</span>
@@ -190,43 +267,46 @@
                             </div>
                         </div>
                     </div>`;
-            } catch {
-                chatBox.innerHTML += "<p class='text-center text-[#ff1493] font-black'>Aduh AI-nya lelah! 🥀</p>";
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = "KIRIM ✨";
-                chatBox.scrollTop = chatBox.scrollHeight;
-            }
+        } catch {
+          chatBox.innerHTML +=
+            "<p class='text-center text-[#ff1493] font-black'>Aduh AI-nya lelah! 🥀</p>";
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML = "KIRIM ✨";
+          chatBox.scrollTop = chatBox.scrollHeight;
         }
+      }
 
-        function salin(id) {
-            navigator.clipboard.writeText(document.getElementById(id).innerText);
-            alert("Suksess Princess! ✨💖");
-        }
+      function salin(id) {
+        navigator.clipboard.writeText(document.getElementById(id).innerText);
+        alert("Suksess Princess! ✨💖");
+      }
 
-        function simpan(id) {
-            const blob = new Blob([document.getElementById(id).innerText], {type:"text/plain"});
-            const a = document.createElement("a");
-            a.href = URL.createObjectURL(blob);
-            a.download = "Anfairy-Memory.txt";
-            a.click();
-        }
+      function simpan(id) {
+        const blob = new Blob([document.getElementById(id).innerText], {
+          type: "text/plain",
+        });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "Anfairy-Memory.txt";
+        a.click();
+      }
 
-        function deleteChat(i) {
-            chatHistory.splice(i, 1);
-            localStorage.setItem("anfairy_history", JSON.stringify(chatHistory));
-            updateHistoryUI();
-        }
-
-        function clearHistory() {
-            if(confirm("Hapus memori? 🥺")) {
-                chatHistory = [];
-                localStorage.removeItem("anfairy_history");
-                updateHistoryUI();
-            }
-        }
-
+      function deleteChat(i) {
+        chatHistory.splice(i, 1);
+        localStorage.setItem("anfairy_history", JSON.stringify(chatHistory));
         updateHistoryUI();
+      }
+
+      function clearHistory() {
+        if (confirm("Hapus memori? 🥺")) {
+          chatHistory = [];
+          localStorage.removeItem("anfairy_history");
+          updateHistoryUI();
+        }
+      }
+
+      updateHistoryUI();
     </script>
-</body>
+  </body>
 </html>
